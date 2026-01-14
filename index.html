@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DG Nexus Ventures | Chandler, AZ</title>
+    <style>
+        /* --- DESIGN & COLORS --- */
+        :root {
+            /* Deep Navy & Gold/Bronze for a "Ventures" Capital/Consulting look */
+            --primary: #0F2027; 
+            --accent: #C09F5E;  
+            --light: #F4F6F7;   
+            --text: #2C3E50;
+            --white: #ffffff;
+        }
+        body { margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text); background-color: var(--white); }
+        
+        /* --- LAYOUT --- */
+        header { background: var(--white); padding: 1.5rem 5%; box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
+        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: 1px; text-transform: uppercase; }
+        .logo span { color: var(--accent); } /* "Nexus" highlight */
+        
+        nav a { text-decoration: none; color: var(--primary); margin-left: 25px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+        nav a:hover { color: var(--accent); }
+        
+        /* --- HERO SECTION --- */
+        .hero { 
+            background: linear-gradient(to right, #203A43, #2C5364); 
+            color: var(--white); 
+            padding: 120px 20px; 
+            text-align: center; 
+        }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: -1px; }
+        .hero h2 { font-size: 1.5rem; font-weight: 300; margin-top: 0; margin-bottom: 40px; color: #ddd; }
+        .btn { background: var(--accent); color: var(--white); padding: 16px 35px; text-decoration: none; border-radius: 2px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; display: inline-block; border: none; }
+        .btn:hover { background: #a68545; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+
+        /* --- SECTIONS --- */
+        .section { padding: 100px 20px; max-width: 1100px; margin: 0 auto; }
+        .section h2 { text-align: center; font-size: 2.2rem; color: var(--primary); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 1px; }
+        .section h2::after { content: ""; display: block; width: 60px; height: 3px; background: var(--accent); margin: 15px auto 0; }
+        
+        /* --- SERVICES GRID --- */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
+        .card { background: var(--white); padding: 40px 30px; border-radius: 4px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); transition: 0.3s; }
+        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,0,0,0.1); }
+        .card h3 { color: var(--primary); font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; }
+        .card p { color: #666; font-size: 0.95rem; }
+
+        /* --- ABOUT SECTION --- */
+        .about-text { text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #444; }
+
+        /* --- CONTACT SECTION --- */
+        .contact-box { background: var(--light); padding: 50px; border-radius: 8px; text-align: center; max-width: 700px; margin: 0 auto; border: 1px solid #e1e1e1; }
+        .contact-label { display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-top: 20px; font-weight: bold; }
+        .contact-value { font-size: 1.3rem; color: var(--primary); font-weight: 500; }
+        .contact-value a { color: var(--primary); text-decoration: none; border-bottom: 1px dotted var(--primary); }
+        
+        /* --- FOOTER --- */
+        footer { background: var(--primary); color: #888; text-align: center; padding: 40px 20px; font-size: 0.85rem; border-top: 5px solid var(--accent); }
+        footer a { color: #bbb; text-decoration: none; transition: 0.3s; }
+        footer a:hover { color: var(--accent); }
+        
+        /* --- MOBILE TWEAKS --- */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { display: none; } 
+            .header { justify-content: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo">DG <span>Nexus</span> Ventures</div>
+        <nav>
+            <a href="#expertise">Expertise</a>
+            <a href="#about">About</a>
+            <a href="#contact">Contact</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h1>Strategic Vision. Tangible Growth.</h1>
+        <h2>Empowering business potential through innovative solutions.</h2>
+        <a href="mailto:dgnexusventures@gmail.com" class="btn">Partner With Us</a>
+    </section>
+
+    <section id="expertise" class="section">
+        <h2>Core Capabilities</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Strategic Consulting</h3>
+                <p>We provide in-depth analysis and actionable strategies to help businesses navigate complex market challenges and optimize performance.</p>
+            </div>
+            <div class="card">
+                <h3>Operational Efficiency</h3>
+                <p>Streamlining workflows and implementing robust systems that reduce waste and maximize productivity for long-term scalability.</p>
+            </div>
+            <div class="card">
+                <h3>Venture Development</h3>
+                <p>From concept to execution, we partner with stakeholders to drive project success and foster sustainable innovation.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section" style="background-color: var(--light);">
+        <h2>About DG Nexus Ventures</h2>
+        <div class="about-text">
+            <p>
+                Based in <strong>Chandler, Arizona</strong>, DG Nexus Ventures is a forward-thinking firm dedicated to driving value. We believe that true success lies at the intersection of bold vision and disciplined execution.
+            </p>
+            <br>
+            <p>
+                Our approach is rooted in integrity and a commitment to results. Whether you are looking to refine your strategy or accelerate your growth, we bring the expertise and focus required to move the needle.
+            </p>
+        </div>
+    </section>
+
+    <section id="contact" class="section">
+        <h2>Connect With Us</h2>
+        <div class="contact-box">
+            <p>We are currently accepting new inquiries and partnerships.</p>
+            
+            <span class="contact-label">Email Inquiries</span>
+            <div class="contact-value"><a href="mailto:dgnexusventures@gmail.com">dgnexusventures@gmail.com</a></div>
+            
+            <span class="contact-label">Headquarters</span>
+            <div class="contact-value">Chandler, AZ</div>
+
+            <div style="margin-top: 40px;">
+                <a href="mailto:dgnexusventures@gmail.com" class="btn">Initiate Contact</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 DG Nexus Ventures. All Rights Reserved.</p>
+        <p>Chandler, Arizona, USA</p>
+        <p style="margin-top: 10px;"><a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+</body>
+</html>
