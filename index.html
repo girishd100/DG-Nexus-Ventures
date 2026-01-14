@@ -7,9 +7,9 @@
     <style>
         /* --- DESIGN & COLORS --- */
         :root {
-            /* Deep Navy & Gold/Bronze for a "Ventures" Capital/Consulting look */
-            --primary: #0F2027; 
-            --accent: #C09F5E;  
+            --primary: #0F2027; /* Deep Navy */
+            --secondary: #203A43; /* Teal/Charcoal */
+            --accent: #C09F5E;  /* Gold/Bronze */
             --light: #F4F6F7;   
             --text: #2C3E50;
             --white: #ffffff;
@@ -17,30 +17,53 @@
         body { margin: 0; font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; line-height: 1.6; color: var(--text); background-color: var(--white); }
         
         /* --- LAYOUT --- */
-        header { background: var(--white); padding: 1.5rem 5%; box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
-        .logo { font-size: 1.5rem; font-weight: 800; color: var(--primary); letter-spacing: 1px; text-transform: uppercase; }
-        .logo span { color: var(--accent); } /* "Nexus" highlight */
+        header { background: var(--white); padding: 1.2rem 5%; box-shadow: 0 4px 12px rgba(0,0,0,0.05); display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 1000; }
         
-        nav a { text-decoration: none; color: var(--primary); margin-left: 25px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+        /* --- CUSTOM CSS LOGO --- */
+        .logo-container { display: flex; align-items: center; gap: 12px; text-decoration: none; }
+        .logo-icon { 
+            background: var(--primary); 
+            color: var(--accent); 
+            width: 45px; 
+            height: 45px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            font-weight: 900; 
+            font-size: 1.2rem; 
+            border-radius: 4px; /* Slight rounded corners */
+            border-bottom: 3px solid var(--accent);
+        }
+        .logo-text { font-size: 1.4rem; font-weight: 800; color: var(--primary); letter-spacing: 0.5px; text-transform: uppercase; line-height: 1; }
+        .logo-sub { display: block; font-size: 0.65rem; color: #777; font-weight: 500; letter-spacing: 2px; margin-top: 3px; }
+
+        nav a { text-decoration: none; color: var(--primary); margin-left: 25px; font-weight: 600; font-size: 0.85rem; transition: 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
         nav a:hover { color: var(--accent); }
         
         /* --- HERO SECTION --- */
         .hero { 
-            background: linear-gradient(to right, #203A43, #2C5364); 
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%); 
             color: var(--white); 
-            padding: 120px 20px; 
+            padding: 140px 20px; 
             text-align: center; 
         }
-        .hero h1 { font-size: 3.5rem; margin-bottom: 10px; font-weight: 700; letter-spacing: -1px; }
-        .hero h2 { font-size: 1.5rem; font-weight: 300; margin-top: 0; margin-bottom: 40px; color: #ddd; }
+        .hero h1 { font-size: 3.5rem; margin-bottom: 15px; font-weight: 800; letter-spacing: -1px; }
+        .hero h2 { font-size: 1.4rem; font-weight: 300; margin-top: 0; margin-bottom: 50px; color: #cfd8dc; max-width: 700px; margin-left: auto; margin-right: auto; }
         .btn { background: var(--accent); color: var(--white); padding: 16px 35px; text-decoration: none; border-radius: 2px; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; display: inline-block; border: none; }
-        .btn:hover { background: #a68545; transform: translateY(-2px); box-shadow: 0 5px 15px rgba(0,0,0,0.2); }
+        .btn:hover { background: #a68545; transform: translateY(-2px); box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
 
         /* --- SECTIONS --- */
         .section { padding: 100px 20px; max-width: 1100px; margin: 0 auto; }
         .section h2 { text-align: center; font-size: 2.2rem; color: var(--primary); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 1px; }
         .section h2::after { content: ""; display: block; width: 60px; height: 3px; background: var(--accent); margin: 15px auto 0; }
         
+        /* --- DATA/METRICS ROW --- */
+        .metrics-row { display: flex; justify-content: space-around; flex-wrap: wrap; text-align: center; margin-top: 20px; gap: 30px; }
+        .metric-box { flex: 1; min-width: 200px; }
+        .metric-number { font-size: 3rem; font-weight: 800; color: var(--accent); line-height: 1; }
+        .metric-label { font-size: 0.9rem; font-weight: bold; color: var(--primary); text-transform: uppercase; letter-spacing: 1px; margin-top: 10px; }
+        .metric-desc { font-size: 0.9rem; color: #666; margin-top: 5px; }
+
         /* --- SERVICES GRID --- */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
         .card { background: var(--white); padding: 40px 30px; border-radius: 4px; box-shadow: 0 5px 20px rgba(0,0,0,0.05); border-top: 4px solid var(--accent); transition: 0.3s; }
@@ -48,46 +71,68 @@
         .card h3 { color: var(--primary); font-size: 1.4rem; margin-top: 0; margin-bottom: 15px; }
         .card p { color: #666; font-size: 0.95rem; }
 
-        /* --- ABOUT SECTION --- */
-        .about-text { text-align: center; max-width: 800px; margin: 0 auto; font-size: 1.1rem; color: #444; }
-
         /* --- CONTACT SECTION --- */
-        .contact-box { background: var(--light); padding: 50px; border-radius: 8px; text-align: center; max-width: 700px; margin: 0 auto; border: 1px solid #e1e1e1; }
-        .contact-label { display: block; font-size: 0.8rem; text-transform: uppercase; color: #888; margin-top: 20px; font-weight: bold; }
-        .contact-value { font-size: 1.3rem; color: var(--primary); font-weight: 500; }
-        .contact-value a { color: var(--primary); text-decoration: none; border-bottom: 1px dotted var(--primary); }
+        .contact-box { background: var(--light); padding: 60px; border-radius: 4px; text-align: center; max-width: 700px; margin: 0 auto; border: 1px solid #e1e1e1; }
+        .contact-value a { color: var(--primary); font-size: 1.3rem; font-weight: 600; text-decoration: none; border-bottom: 2px solid var(--accent); }
         
         /* --- FOOTER --- */
         footer { background: var(--primary); color: #888; text-align: center; padding: 40px 20px; font-size: 0.85rem; border-top: 5px solid var(--accent); }
-        footer a { color: #bbb; text-decoration: none; transition: 0.3s; }
-        footer a:hover { color: var(--accent); }
         
         /* --- MOBILE TWEAKS --- */
         @media (max-width: 768px) {
             .hero h1 { font-size: 2.2rem; }
+            .metrics-row { flex-direction: column; }
             nav { display: none; } 
-            .header { justify-content: center; }
+            header { justify-content: center; }
         }
     </style>
 </head>
 <body>
 
     <header>
-        <div class="logo">DG <span>Nexus</span> Ventures</div>
+        <div class="logo-container">
+            <div class="logo-icon">DG</div>
+            <div>
+                <div class="logo-text">Nexus</div>
+                <span class="logo-sub">VENTURES</span>
+            </div>
+        </div>
+
         <nav>
             <a href="#expertise">Expertise</a>
-            <a href="#about">About</a>
+            <a href="#advantage">Advantage</a>
             <a href="#contact">Contact</a>
         </nav>
     </header>
 
     <section class="hero">
-        <h1>Strategic Vision. Tangible Growth.</h1>
-        <h2>Empowering business potential through innovative solutions.</h2>
+        <h1>Precision Strategy.<br>Sustainable Growth.</h1>
+        <h2>DG Nexus Ventures partners with businesses to unlock value through operational discipline and strategic foresight.</h2>
         <a href="mailto:dgnexusventures@gmail.com" class="btn">Partner With Us</a>
     </section>
 
-    <section id="expertise" class="section">
+    <section id="advantage" class="section">
+        <h2>The Nexus Advantage</h2>
+        <div class="metrics-row">
+            <div class="metric-box">
+                <div class="metric-number">24/7</div>
+                <div class="metric-label">Operational Readiness</div>
+                <div class="metric-desc">Always-on support structure for critical client needs.</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-number">100%</div>
+                <div class="metric-label">Tailored Solutions</div>
+                <div class="metric-desc">Zero generic templates. Every strategy is built for your specific context.</div>
+            </div>
+            <div class="metric-box">
+                <div class="metric-number">AZ</div>
+                <div class="metric-label">Locally Rooted</div>
+                <div class="metric-desc">Deep understanding of the Chandler & Phoenix metro business landscape.</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="expertise" class="section" style="background-color: var(--light);">
         <h2>Core Capabilities</h2>
         <div class="grid">
             <div class="card">
@@ -105,32 +150,23 @@
         </div>
     </section>
 
-    <section id="about" class="section" style="background-color: var(--light);">
-        <h2>About DG Nexus Ventures</h2>
-        <div class="about-text">
-            <p>
-                Based in <strong>Chandler, Arizona</strong>, DG Nexus Ventures is a forward-thinking firm dedicated to driving value. We believe that true success lies at the intersection of bold vision and disciplined execution.
-            </p>
-            <br>
-            <p>
-                Our approach is rooted in integrity and a commitment to results. Whether you are looking to refine your strategy or accelerate your growth, we bring the expertise and focus required to move the needle.
-            </p>
-        </div>
-    </section>
-
     <section id="contact" class="section">
         <h2>Connect With Us</h2>
         <div class="contact-box">
-            <p>We are currently accepting new inquiries and partnerships.</p>
+            <p style="margin-bottom: 30px; font-size: 1.1rem; color: #555;">
+                We are currently accepting new inquiries for the upcoming quarter.
+            </p>
             
-            <span class="contact-label">Email Inquiries</span>
-            <div class="contact-value"><a href="mailto:dgnexusventures@gmail.com">dgnexusventures@gmail.com</a></div>
+            <div style="margin-bottom: 20px;">
+                <span style="display:block; font-size: 0.8rem; font-weight: bold; color: #999; margin-bottom: 5px; text-transform: uppercase;">Direct Inquiry</span>
+                <div class="contact-value">
+                    <a href="mailto:dgnexusventures@gmail.com">dgnexusventures@gmail.com</a>
+                </div>
+            </div>
             
-            <span class="contact-label">Headquarters</span>
-            <div class="contact-value">Chandler, AZ</div>
-
             <div style="margin-top: 40px;">
-                <a href="mailto:dgnexusventures@gmail.com" class="btn">Initiate Contact</a>
+                <span style="display:block; font-size: 0.8rem; font-weight: bold; color: #999; margin-bottom: 5px; text-transform: uppercase;">Headquarters</span>
+                <span style="font-size: 1.1rem; color: var(--primary); font-weight: 500;">Chandler, Arizona</span>
             </div>
         </div>
     </section>
@@ -141,5 +177,4 @@
     </footer>
 
 </body>
-
 </html>
